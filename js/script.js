@@ -14,6 +14,7 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
+// An array of quote objects to store the multiple components for each quote
 let quotes = [{quote: "I say to you today, my friends, that in spite of the difficulties and frustrations of the moment, I still have a dream.",
                source: "Martin Luther King, Jr.",
                citation: "Speech",
@@ -21,15 +22,11 @@ let quotes = [{quote: "I say to you today, my friends, that in spite of the diff
               }, 
             
               {quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
-                source: "Nelson Mandela",
-                citation: undefined,
-                year: undefined
+                source: "Nelson Mandela"
                },
               
                {quote: "I hated every minute of training, but I said, ‘Don’t quit. Suffer now and live the rest of your life as a champion.",
-                source: "Muhammad Ali",
-                citation: undefined,
-                year: undefined
+                source: "Muhammad Ali"
                },
               
                {quote: "Do. Or do not. There is no try.",
@@ -45,10 +42,8 @@ let quotes = [{quote: "I say to you today, my friends, that in spite of the diff
                },
               
                {quote: "You will face many defeats in life, but never let yourself be defeated.",
-                source: "Maya Angelou",
-                citation: undefined,
-                year: undefined
-               },]
+                source: "Maya Angelou"
+               }]
 
 
 
@@ -57,6 +52,12 @@ let quotes = [{quote: "I say to you today, my friends, that in spite of the diff
    - Create a variable to store a random number 
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
+// function to retrieve a random quote from the array
+function getRandomQuote() {
+  let randomNum = Math.floor(Math.random() * (quotes.length));
+  let randomQuote = quotes[randomNum];
+  return randomQuote;
+}
 
 
 
@@ -73,6 +74,31 @@ let quotes = [{quote: "I say to you today, my friends, that in spite of the diff
    - Don't forget to close that final `p` tag.
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
+function printQuote() {
+
+  let quote = getRandomQuote();
+
+  let HTML = '';
+
+  HTML += `<p class="quote">${quote.quote}</p>`;
+
+  HTML += `<p class="source">${quote.source}`;
+
+  if (quote.citation !== undefined) {
+    HTML += `<span class="citation">${quote.citation}</span>`
+  }
+
+  if (quote.year !== undefined) {
+    HTML += `<span class="year">${quote.year}</span>`
+  }
+
+  HTML += `</p>`
+
+  console.log(HTML)
+
+}
+
+
 
 
 
@@ -84,7 +110,7 @@ let quotes = [{quote: "I say to you today, my friends, that in spite of the diff
   comment.
 ***/
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+//document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
