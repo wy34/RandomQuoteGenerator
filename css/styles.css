@@ -104,3 +104,9 @@ body {
     font-size: 1.25rem;
   }
 }
+
+.tags {
+  position: relative;
+  top: 10px;
+  left: 1250px;
+}
